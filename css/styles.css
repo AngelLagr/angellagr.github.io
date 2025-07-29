@@ -1618,6 +1618,7 @@ section {
   display: flex;
   flex-direction: column;
   min-height: 450px;
+  height: 550px;
 }
 
 .certificate-card {
@@ -2308,9 +2309,9 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   padding: 2.5rem;
+  height: 350px;
   transition: all 0.3s ease;
   cursor: pointer;
-  height: fit-content;
   position: relative;
 }
 
