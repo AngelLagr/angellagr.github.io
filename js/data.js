@@ -265,19 +265,19 @@ const portfolioData = {
         <h3>My Implementation</h3>
         <p>I applied these techniques to a small Keras model trained on the "Wine" dataset (💪🍷) using my personal weight usage analysis tool (<a href="https://github.com/AngelLagr/weight-usage-analyzer" target="_blank">WeightUsageAnalyzer</a>) and TensorFlow's optimization tools. My goal was to measure their energy and economic impact before and after optimization.</p>
         
-        <h3>𝐑𝐞𝐬𝐮𝐥𝐭𝐬 👇</h3>
+        <h3>Results 👇</h3>
         <p><strong>Baseline model:</strong><br>
         ➡️ The base model performs about 320k operations per use.<br>
         ➡️ Running it 30 million times per second (like Amazon Search might do), for a year, would consume ~1,120,397 kWh, or about €324,915 in electricity.</p>
         
-        <p><strong>𝐖𝐢𝐭𝐡 𝐩𝐫𝐮𝐧𝐢𝐧𝐠 ✂️:</strong><br>
+        <p><strong>With pruning ✂️:</strong><br>
         With the "pruned" version of the model (same performance, fewer weights, fewer neurons) we drop to: ~€217,840 in electricity per year for the same accuracy, saving ~€107,075 / year, just by optimizing the architecture!</p>
         
-        <p><strong>𝐖𝐢𝐭𝐡 𝐪𝐮𝐚𝐧𝐭𝐢𝐳𝐚𝐭𝐢𝐨𝐧 🧮:</strong><br>
-        Quantization reduces the calculations needed for a model operation, thus its unit energy cost. An int8 calculation can consume up to <strong>𝟏𝟖.𝟓× 𝐥𝐞𝐬𝐬 𝐞𝐧𝐞𝐫𝐠𝐲</strong> than float32. We almost divide the model's energy cost by 20!</p>
+        <p><strong>With quantization 🧮:</strong><br>
+        Quantization reduces the calculations needed for a model operation, thus its unit energy cost. An int8 calculation can consume up to <strong>18.5× less energy</strong> than float32. We almost divide the model's energy cost by 20!</p>
         
-        <h3>𝐂𝐨𝐧𝐜𝐥𝐮𝐬𝐢𝐨𝐧 💰</h3>
-        <p>➡️ So, by converting the "pruned" model to int8, we drop to ~€11,775 / year versus ~€325k original energy cost! That's <strong>𝟗𝟔.𝟒% 𝐬𝐚𝐯𝐢𝐧𝐠𝐬</strong>.</p>
+        <h3>Conclusion 💰</h3>
+        <p>➡️ So, by converting the "pruned" model to int8, we drop to ~€11,775 / year versus ~€325k original energy cost! That's <strong>96.4% savings</strong>.</p>
         
         <p>For those who want to see how I obtained all these results, everything is explained in a Notebook on my GitHub: <a href="https://github.com/AngelLagr/reduce-ml-cost-with-quantization-pruning" target="_blank">GitHub Repository</a></p>
         
@@ -414,14 +414,137 @@ const portfolioData = {
         <h3>Challenges Faced</h3>
         <p>The main challenges were dealing with sparse rewards and the continuous nature of space. I solved this by implementing a custom reward shaping function that balanced fuel efficiency with mission time and by picking more frequently the experience with the best reward for the training batch. I also had difficulties making the model converge.</p>
 
-        <h3>Outstanding Results</h3>
-        <p>After a lot of episodes of training, the agent achieved to complete his mission with a smart trajectory that minimized fuel consumption while ensuring timely arrival at the destination. However, for now, the model is acting in a simplified environment and may not generalize well to more complex scenarios. But I'm optimistic about pushing it to more various environment and try it to adapt to real-world conditions!</p>
+        <h3>Results</h3>
+        <p>After a lot of episodes of training, the agent achieved to complete his mission with a good trajectory that minimized fuel consumption while ensuring timely arrival at the destination. However, for now, the model is acting in a simplified environment and may not generalize well to more complex scenarios. But I'm optimistic about pushing it to more various environment and try it to adapt to real-world conditions!</p>
       `,
       image: "assets/images/fusee.PNG",
       date: "2025-01-15",
       readTime: "2 min read",
       tags: ["Reinforcement Learning", "Space", "Deep Q-Learning", "Simulation"],
       type: "research"
+    },
+    {
+      id: 5,
+      title: "Attention Is All You Need - Transformer Architecture",
+      excerpt: "Foundational paper introducing the Transformer architecture that revolutionized NLP and became the backbone of modern language models...",
+      content: `
+        <h3>Paper Overview</h3>
+        <p><strong>Authors:</strong> Vaswani et al. (Google Brain/Research)</p>
+        <p><strong>Published:</strong> NIPS 2017</p>
+        <p><strong>arXiv:</strong> <a href="https://arxiv.org/abs/1706.03762" target="_blank">1706.03762</a></p>
+        
+        <h3>Key Contributions</h3>
+        <p>This groundbreaking paper introduced the Transformer architecture, which relies entirely on attention mechanisms without recurrence or convolution. The key innovations include:</p>
+        <ul>
+          <li><strong>Self-Attention Mechanism:</strong> Allows the model to weigh the importance of different parts of the input sequence</li>
+          <li><strong>Multi-Head Attention:</strong> Enables the model to attend to different representation subspaces simultaneously</li>
+          <li><strong>Positional Encoding:</strong> Injects sequence order information without recurrence</li>
+          <li><strong>Parallelization:</strong> Significantly faster training compared to RNNs</li>
+        </ul>
+        
+        <h3>Personal Notes & Analysis</h3>
+        <p>What struck me most about this paper is how the authors completely departed from the sequential processing paradigm that dominated NLP. The attention mechanism allows for direct connections between any two positions in the sequence, enabling better capture of long-range dependencies.</p>
+        
+        <p>The mathematical elegance of the scaled dot-product attention is particularly noteworthy:</p>
+        <p><code>Attention(Q,K,V) = softmax(QK^T/√d_k)V</code></p>
+        
+        <h3>Impact on My Research</h3>
+        <p>This paper fundamentally changed how I think about sequence modeling. The principles of attention have applications far beyond NLP - I've been exploring how similar mechanisms could be applied to my weight analysis work in neural networks.</p>
+        
+        <h3>Key Takeaways</h3>
+        <ul>
+          <li>Sometimes the best solution is to completely rethink the problem</li>
+          <li>Parallelization can be more important than model complexity</li>
+          <li>Attention mechanisms are incredibly versatile and transferable</li>
+        </ul>
+      `,
+      date: "2025-04-10",
+      readTime: "8 min read",
+      tags: ["Transformers", "Attention", "NLP", "Deep Learning", "Architecture"],
+      type: "literature"
+    },
+    {
+      id: 6,
+      title: "Deep Residual Learning for Image Recognition - ResNet",
+      excerpt: "Revolutionary paper that solved the vanishing gradient problem with residual connections, enabling training of very deep neural networks...",
+      content: `
+        <h3>Paper Overview</h3>
+        <p><strong>Authors:</strong> Kaiming He et al. (Microsoft Research)</p>
+        <p><strong>Published:</strong> CVPR 2016</p>
+        <p><strong>arXiv:</strong> <a href="https://arxiv.org/abs/1512.03385" target="_blank">1512.03385</a></p>
+        
+        <h3>The Problem</h3>
+        <p>Before ResNet, training very deep neural networks was problematic due to the vanishing gradient problem. Deeper networks often performed worse than shallower ones, not due to overfitting but due to optimization difficulties.</p>
+        
+        <h3>The Solution: Residual Learning</h3>
+        <p>The key insight was to reformulate the learning problem. Instead of learning the desired underlying mapping H(x), the authors proposed learning the residual F(x) = H(x) - x, and then computing H(x) = F(x) + x.</p>
+        
+        <p>This simple skip connection allows gradients to flow directly through the identity mapping, solving the vanishing gradient problem.</p>
+        
+        <h3>Personal Analysis</h3>
+        <p>What I find most elegant about ResNet is its simplicity. The residual connection is just an addition operation, yet it enables training networks with hundreds of layers. This demonstrates how small architectural changes can have profound impacts.</p>
+        
+        <h3>Applications in My Work</h3>
+        <p>I've been experimenting with residual connections in some of my projects, particularly in the context of my weight analysis tool. The concept of "shortcuts" in information flow is relevant when analyzing how information propagates through different network architectures.</p>
+        
+        <h3>Key Insights</h3>
+        <ul>
+          <li>Sometimes the best solution is the simplest one</li>
+          <li>Skip connections enable identity mappings, making optimization easier</li>
+          <li>Deeper networks can be better if properly designed</li>
+          <li>The residual formulation makes it easier to learn identity functions</li>
+        </ul>
+        
+        <h3>Impact</h3>
+        <p>ResNet didn't just win ImageNet 2015 - it fundamentally changed how we think about deep architecture design. Almost every modern architecture incorporates some form of skip connections.</p>
+      `,
+      date: "2025-01-22",
+      readTime: "6 min read",
+      tags: ["ResNet", "Computer Vision", "Deep Learning", "Skip Connections", "Architecture"],
+      type: "literature"
+    },
+    {
+      id: 7,
+      title: "Generative Adversarial Networks - The Original GAN Paper",
+      excerpt: "Ian Goodfellow's seminal work introducing the GAN framework that sparked a revolution in generative modeling...",
+      content: `
+        <h3>Paper Overview</h3>
+        <p><strong>Authors:</strong> Ian Goodfellow et al.</p>
+        <p><strong>Published:</strong> NIPS 2014</p>
+        <p><strong>arXiv:</strong> <a href="https://arxiv.org/abs/1406.2661" target="_blank">1406.2661</a></p>
+        
+        <h3>The Revolutionary Idea</h3>
+        <p>GANs introduced a completely new approach to generative modeling through adversarial training. Two neural networks compete against each other:</p>
+        <ul>
+          <li><strong>Generator (G):</strong> Learns to create realistic fake data</li>
+          <li><strong>Discriminator (D):</strong> Learns to distinguish real from fake data</li>
+        </ul>
+        
+        <h3>The Game Theory Connection</h3>
+        <p>The brilliant insight was framing this as a minimax game. The generator tries to minimize the discriminator's ability to detect fakes, while the discriminator tries to maximize its detection accuracy.</p>
+        
+        <p>Mathematically: <code>min_G max_D E[log D(x)] + E[log(1-D(G(z)))]</code></p>
+        
+        <h3>Personal Reflections</h3>
+        <p>What fascinates me about GANs is how they leverage competition to drive learning. This adversarial principle has inspired me to think about how competition and collaboration might apply to other ML problems.</p>
+        
+        <p>I've implemented several GAN variants in my projects, including SRGAN for super-resolution. Each time, I'm amazed by how this simple competitive framework can generate such realistic results.</p>
+        
+        <h3>Challenges & Learnings</h3>
+        <p>Training GANs is notoriously difficult - mode collapse, training instability, and convergence issues are common. This taught me valuable lessons about the importance of:</p>
+        <ul>
+          <li>Careful hyperparameter tuning</li>
+          <li>Monitoring multiple metrics during training</li>
+          <li>Understanding the theoretical foundations behind the algorithms</li>
+        </ul>
+        
+        <h3>Impact on the Field</h3>
+        <p>GANs didn't just introduce a new model - they introduced a new paradigm. The adversarial training concept has been applied far beyond generative modeling, influencing areas like domain adaptation and robustness.</p>
+      `,
+      date: "2024-12-15",
+      readTime: "7 min read",
+      tags: ["GANs", "Generative Models", "Adversarial Training", "Deep Learning"],
+      type: "literature"
     },
   ],
 

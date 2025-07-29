@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Load blog page content
 function loadBlogPage() {
   filteredPosts = portfolioData.blogPosts;
+  // Sort posts by date (most recent first)
+  filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
   displayBlogPosts();
   updateLoadMoreButton();
 }
@@ -44,6 +46,9 @@ function filterPosts(category) {
   document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
   event.target.closest('.filter-btn').classList.add('active');
   
+  // Update filter description
+  updateFilterDescription(category);
+  
   // Filter posts
   if (category === 'all') {
     filteredPosts = portfolioData.blogPosts;
@@ -54,14 +59,42 @@ function filterPosts(category) {
     filteredPosts = portfolioData.blogPosts.filter(post => post.type === category);
   }
   
+  // Sort posts by date (most recent first)
+  filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  
   displayBlogPosts();
   updateLoadMoreButton();
+}
+
+// Update filter description
+function updateFilterDescription(category) {
+  const descriptionContainer = document.getElementById('filter-description');
+  const descriptions = {
+    'all': '',
+    'research': 'Here are experiments and research I\'ve conducted and wanted to share',
+    'tutorial': 'Practical tutorials and guides',
+    'literature': 'Scientific publications I\'ve read and studied, with my personal reflections'
+  };
+  
+  const description = descriptions[category] || '';
+  if (description) {
+    descriptionContainer.innerHTML = `<p class="filter-description-text">${description}</p>`;
+    descriptionContainer.style.display = 'block';
+  } else {
+    descriptionContainer.style.display = 'none';
+  }
 }
 
 // Display blog posts
 function displayBlogPosts() {
   const container = document.getElementById('all-blog-posts');
   const postsToShow = filteredPosts.slice(0, currentPage * postsPerPage);
+  
+  // Update container layout based on current filter
+  container.classList.remove('literature-layout');
+  if (currentFilter === 'literature') {
+    container.classList.add('literature-layout');
+  }
   
   container.innerHTML = '';
   
@@ -83,7 +116,15 @@ function createBlogPostCardFull(post, index) {
   card.setAttribute('data-aos', 'fade-up');
   card.setAttribute('data-aos-delay', (index % postsPerPage * 100).toString());
   
+  // Generate image HTML only if image exists
+  const imageHTML = post.image ? `
+    <div class="blog-post-image">
+      <img src="${post.image}" alt="${post.title}" loading="lazy">
+    </div>
+  ` : '';
+  
   card.innerHTML = `
+    ${imageHTML}
     <div class="blog-post-content">
       <div class="blog-post-meta">
         <span class="blog-post-date">
@@ -139,7 +180,7 @@ function getTypeLabel(type) {
     'research': 'Research',
     'project': 'Project',
     'tutorial': 'Tutorial',
-    'thoughts': 'Thoughts',
+    'literature': 'Literature',
     'news': 'News'
   };
   return labels[type] || type;
