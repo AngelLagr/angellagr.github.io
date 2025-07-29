@@ -950,19 +950,33 @@ section {
 }
 
 .post-type-badge.research {
-  background: linear-gradient(135deg, #228b22, #32cd32);
+  background: var(--bg-accent);
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-accent);
 }
 
 .post-type-badge.project {
-  background: linear-gradient(135deg, #4169e1, #6495ed);
+  background: var(--bg-accent);
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-accent);
 }
 
 .post-type-badge.thoughts {
-  background: linear-gradient(135deg, #ff6347, #ff7f50);
+  background: rgba(255, 99, 71, 0.2);
+  color: #ff7f50;
+  border: 1px solid rgba(255, 99, 71, 0.3);
 }
 
 .post-type-badge.tutorial {
-  background: linear-gradient(135deg, #ffa500, #ffb347);
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.post-type-badge.literature {
+  background: rgba(106, 90, 205, 0.2);
+  color: #9370db;
+  border: 1px solid rgba(106, 90, 205, 0.3);
 }
 
 .post-content {
@@ -1146,19 +1160,33 @@ section {
 }
 
 .blog-post-type-badge.research {
-  background: linear-gradient(135deg, #228b22, #32cd32);
+  background: var(--bg-accent);
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-accent);
 }
 
 .blog-post-type-badge.project {
-  background: linear-gradient(135deg, #4169e1, #6495ed);
+  background: var(--bg-accent);
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-accent);
 }
 
 .blog-post-type-badge.thoughts {
-  background: linear-gradient(135deg, #ff6347, #ff7f50);
+  background: rgba(255, 99, 71, 0.2);
+  color: #ff7f50;
+  border: 1px solid rgba(255, 99, 71, 0.3);
 }
 
 .blog-post-type-badge.tutorial {
-  background: linear-gradient(135deg, #ffa500, #ffb347);
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.blog-post-type-badge.literature {
+  background: rgba(106, 90, 205, 0.2);
+  color: #9370db;
+  border: 1px solid rgba(106, 90, 205, 0.3);
 }
 
 .blog-post-body {
@@ -1231,6 +1259,12 @@ section {
   background: rgba(168, 85, 247, 0.2);
   color: #c084fc;
   border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.blog-post-type.literature {
+  background: rgba(106, 90, 205, 0.2);
+  color: #9370db;
+  border: 1px solid rgba(106, 90, 205, 0.3);
 }
 
 .blog-post-title {
@@ -3244,19 +3278,33 @@ section {
 }
 
 .blogmodal-type-badge.research {
-  background: linear-gradient(135deg, #228b22, #32cd32);
+  background: var(--bg-accent);
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-accent);
 }
 
 .blogmodal-type-badge.project {
-  background: linear-gradient(135deg, #4169e1, #6495ed);
+  background: var(--bg-accent);
+  color: var(--accent-secondary);
+  border: 1px solid var(--border-accent);
 }
 
 .blogmodal-type-badge.thoughts {
-  background: linear-gradient(135deg, #ff6347, #ff7f50);
+  background: rgba(255, 99, 71, 0.2);
+  color: #ff7f50;
+  border: 1px solid rgba(255, 99, 71, 0.3);
 }
 
 .blogmodal-type-badge.tutorial {
-  background: linear-gradient(135deg, #ffa500, #ffb347);
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.blogmodal-type-badge.literature {
+  background: rgba(106, 90, 205, 0.2);
+  color: #9370db;
+  border: 1px solid rgba(106, 90, 205, 0.3);
 }
 
 .blogmodal-body {

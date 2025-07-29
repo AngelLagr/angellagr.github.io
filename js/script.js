@@ -734,9 +734,11 @@ function createBlogPostModal(post) {
             </div>
             
             <div class="blogmodal-body">
+                ${post.image ? `
                 <div class="blogmodal-hero">
                     <img src="${post.image}" alt="${post.title}" class="blogmodal-hero-image">
                 </div>
+                ` : '<br>'}
                 
                 <div class="blogmodal-type-badge ${post.type}">
                     ${post.type.charAt(0).toUpperCase() + post.type.slice(1)}

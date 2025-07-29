@@ -116,12 +116,12 @@ function createBlogPostCardFull(post, index) {
   card.setAttribute('data-aos', 'fade-up');
   card.setAttribute('data-aos-delay', (index % postsPerPage * 100).toString());
   
-  // Generate image HTML only if image exists
+  // Generate image HTML only if image exists, otherwise add spacing
   const imageHTML = post.image ? `
     <div class="blog-post-image">
       <img src="${post.image}" alt="${post.title}" loading="lazy">
     </div>
-  ` : '';
+  ` : '<br>';
   
   card.innerHTML = `
     ${imageHTML}

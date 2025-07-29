@@ -247,6 +247,80 @@ const portfolioData = {
 
   blogPosts: [
     {
+      id: 8,
+      title: "Running Large Language Models Locally with languagemodels",
+      excerpt: "A practical guide to using the languagemodels Python library for local LLM inference with minimal memory requirements...",
+      content: `
+        <p>Running large language models locally can be challenging due to memory constraints and complex setup processes. The <code>languagemodels</code> Python library by <a href="https://github.com/jncraton/languagemodels" target="_blank">jncraton</a> simplifies this by enabling LLM inference in as little as 512MB of RAM.</p>
+        
+        <h3>Installation</h3>
+        <p>Getting started is straightforward with pip:</p>
+        <pre><code>pip install languagemodels</code></pre>
+        
+        <h3>Basic Usage</h3>
+        <p>The library provides a simple interface for common tasks:</p>
+        <pre><code>import languagemodels as lm
+
+lm.do("What color is the sky?")
+# Output: 'The color of the sky is blue.'
+</code></pre>
+        
+        <p>The first run requires downloading model data (~250MB), but subsequent calls are fast thanks to local caching.</p>
+        
+        <h3>Memory Configuration</h3>
+        <p>You can adjust memory usage to access more powerful models:</p>
+        <pre><code># Default model (512MB)
+lm.do("If I have 7 apples then eat 5, how many do I have?")
+# Output: 'You have 8 apples.' (incorrect)
+
+# Increase memory for better performance
+lm.config["max_ram"] = "4gb"
+lm.do("If I have 7 apples then eat 5, how many do I have?")
+# Output: 'I have 2 apples left.' (correct)</code></pre>
+        
+        This lib have also other features like completion, etc..
+        That's why I found it really useful for various tasks and by keeping the memory usage low, it can be used on many devices, even Raspberry Pi !
+
+        <h3>Document Storage and Semantic Search</h3>
+        <p>You can store documents and perform semantic search for context retrieval:</p>
+        <pre><code># Store documents
+lm.store_doc(lm.get_wiki("Python"), "Python")
+# Search for relevant context
+context = lm.get_doc_context("What is a int in Python?")
+# Returns relevant passages from stored documents</code></pre>
+        
+        <h3>Performance</h3>
+        <p>The library uses int8 quantization and CTranslate2 backend for efficient CPU inference:</p>
+        <ul>
+          <li>2x faster than Hugging Face transformers</li>
+          <li>5x less memory usage</li>
+          <li>Negligible quality loss from quantization</li>
+        </ul>
+
+        <h3>Practical Applications</h3>
+        <p>I found it really useful for:</p>
+        <ul>
+          <li>Learning about language models with hands-on experimentation</li>
+          <li>Building privacy-focused applications with local inference</li>
+          <li>Resource-constrained environments where efficiency matters</li>
+        </ul>
+        
+        <p>The simplicity of the API makes it an accessible entry point for working with language models locally, though performance will be below current state-of-the-art cloud models.</p>
+
+        <h3>Conclusion</h3>
+        <p>The <code>languagemodels</code> library can really be useful for studying and experimenting with language models locally. That's why I recommend people that want to understand how RAG works or how llm interacts with user queries to give it a try.</p>
+
+        <h3>References</h3>
+        <p>🔗 <strong>Project Repository:</strong> <a href="https://github.com/jncraton/languagemodels" target="_blank">https://github.com/jncraton/languagemodels</a><br>
+        📝 <strong>Author:</strong> jncraton</p>
+      `,
+      image: "assets/images/llm_local.png",
+      date: "2025-07-15",
+      readTime: "5 min read",
+      tags: ["Python", "LLM", "Local Inference", "Machine Learning", "NLP", "Tutorial"],
+      type: "tutorial"
+    },
+    {
       id: 1,
       title: "Reducing Machine Learning Costs: A Study on Model Optimization Techniques",
       excerpt: "⚡ Quick report on a study I conducted on reducing Machine Learning costs through pruning and quantization...",
@@ -288,7 +362,7 @@ const portfolioData = {
         <p><strong>PS:</strong> I use sources here that may have evolved over time, and the calculations presented in this notebook remain approximate. The objective of this demo is not absolute precision, but rather to show how important it is to think about how we build our ML models, especially when we scale them up.</p>
       `,
       image: "assets/images/energy.jpg",
-      date: "2025-06-20",
+      date: "2025-07-20",
       readTime: "6 min read",
       tags: ["Machine Learning", "Optimization", "Energy Efficiency", "Cost Reduction", "Pruning", "Quantization"],
       type: "research"
@@ -340,7 +414,7 @@ const portfolioData = {
         
       `,
       image: "assets/images/weightanalyser.jpg",
-      date: "2025-07-15",
+      date: "2025-06-15",
       readTime: "4 min read",
       tags: ["Deep Learning", "AI", "Open Source", "Model Compression", "Computational Efficiency", "Weight Analysis"],
       type: "project"
@@ -429,7 +503,7 @@ const portfolioData = {
       excerpt: "Foundational paper introducing the Transformer architecture that revolutionized NLP and became the backbone of modern language models...",
       content: `
         <h3>Paper Overview</h3>
-        <p><strong>Authors:</strong> Vaswani et al. (Google Brain/Research)</p>
+        <p><strong>Authors:</strong> Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin (Google Brain/Research)</p>
         <p><strong>Published:</strong> NIPS 2017</p>
         <p><strong>arXiv:</strong> <a href="https://arxiv.org/abs/1706.03762" target="_blank">1706.03762</a></p>
         
