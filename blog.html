@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="assets/images/Photo.jpg" />
+
+  <!-- Primary Meta Tags -->
+  <title>Blog - Angel Lagrange</title>
+  <meta name="title" content="Blog - Angel Lagrange" />
+  <meta name="description" content="Read the latest insights and research updates from Angel Lagrange on machine learning, AI research, and technology." />
+  <meta name="keywords" content="Angel Lagrange, Machine Learning Blog, AI Research, Deep Learning, Neural Networks, Blog" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://angellagr.github.io/blog.html" />
+  <meta property="og:title" content="Blog - Angel Lagrange" />
+  <meta property="og:description" content="Read the latest insights and research updates from Angel Lagrange on machine learning, AI research, and technology." />
+  <meta property="og:image" content="https://angellagr.github.io/assets/images/Meta.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="assets/images/Photo.jpg" alt="Profile" class="nav-logo">
+        <span class="nav-name">Angel L.</span>
+      </div>
+      
+      <div class="nav-center" id="nav-center">
+        <div class="nav-menu" id="nav-menu">
+          <a href="index.html#About" class="nav-link">Home</a>
+          <a href="index.html#Portofolio" class="nav-link">Portfolio</a>
+          <a href="index.html#Contact" class="nav-link">Contact</a>
+          <a href="blog.html" class="nav-link active">Blog</a>
+        </div>
+      </div>
+      
+      <!-- Theme Toggle Button -->
+      <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()">
+        <i data-lucide="sun" class="theme-icon light-icon"></i>
+        <i data-lucide="moon" class="theme-icon dark-icon"></i>
+      </button>
+      
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Animated Background -->
+  <div class="animated-background">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Blog Header Section -->
+    <section class="blog-header-section">
+      <div class="container">
+        <div class="blog-header-content" data-aos="fade-up">
+          <h1 class="blog-main-title">
+            <span class="gradient">Blog</span>
+          </h1>
+          <p class="blog-main-description">
+            Insights, research updates, and thoughts on machine learning, artificial intelligence, and technology
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="blog-posts-section">
+      <div class="container">
+        <!-- Filter Navigation -->
+        <div class="blog-filter-nav" data-aos="fade-up" data-aos-delay="200">
+          <button class="filter-btn active" onclick="filterPosts('all')">
+            <i data-lucide="list"></i>
+            All Posts
+          </button>
+          <button class="filter-btn" onclick="filterPosts('research')">
+            <i data-lucide="microscope"></i>
+            Research
+          </button>
+          <button class="filter-btn" onclick="filterPosts('tutorial')">
+            <i data-lucide="book-open"></i>
+            Tutorials
+          </button>
+          <button class="filter-btn" onclick="filterPosts('thoughts')">
+            <i data-lucide="lightbulb"></i>
+            Thoughts
+          </button>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <div class="blog-posts-grid" id="all-blog-posts" data-aos="fade-up" data-aos-delay="400">
+          <!-- Blog posts will be loaded here -->
+        </div>
+
+        <!-- Load More Button -->
+        <div class="load-more-container" data-aos="fade-up" data-aos-delay="600">
+          <button class="load-more-btn" id="load-more-posts" onclick="loadMorePosts()" style="display: none;">
+            <span>Load More Posts</span>
+            <i data-lucide="chevron-down"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <p>&copy; 2025 <a href="index.html" class="footer-link">Angel Lagrange™</a>. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>
