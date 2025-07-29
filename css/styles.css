@@ -2472,6 +2472,12 @@ section {
   border: 1px solid rgba(168, 85, 247, 0.3);
 }
 
+.blog-post-type-home.literature {
+  background: rgba(106, 90, 205, 0.2);
+  color: #9370db;
+  border: 1px solid rgba(106, 90, 205, 0.3);
+}
+
 .blog-post-title-home {
   color: var(--text-bis);
   font-size: 1.3rem;
@@ -2505,10 +2511,10 @@ section {
 
 .blog-tag-home {
   padding: 0.3rem 0.8rem;
-  background: var(--bg-quaternary);
-  border: 1px solid var(--border-secondary);
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
   border-radius: 15px;
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   font-size: 0.75rem;
   font-weight: 500;
   transition: all 0.3s ease;

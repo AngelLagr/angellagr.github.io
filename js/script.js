@@ -644,8 +644,9 @@ function loadBlogPosts() {
     const container = document.getElementById('blog-posts');
     if (!container) return;
     
-    // Show only 2 most recent posts for home page grid
-    const recentPosts = portfolioData.blogPosts.slice(0, 2);
+    // Sort posts by date (most recent first) and show only 2 most recent posts for home page grid
+    const sortedPosts = [...portfolioData.blogPosts].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const recentPosts = sortedPosts.slice(0, 2);
     
     container.innerHTML = recentPosts.map(post => createBlogPostCardHome(post)).join('');
     

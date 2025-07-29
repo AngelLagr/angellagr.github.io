@@ -247,6 +247,69 @@ const portfolioData = {
 
   blogPosts: [
     {
+      id: 9,
+      title: "SoK: Security and Privacy in Machine Learning",
+      excerpt: "A systematic review of security threats in ML systems, introducing a quadripartite framework that extends the classic CIA model to explicitly include privacy...",
+      content: `
+        <h3>Paper Overview</h3>
+        <p><strong>Authors:</strong> Nicolas Papernot, Patrick McDaniel, Arunesh Sinha, Michael P. Wellman</p>
+        <p><strong>Published:</strong> 2018 IEEE Symposium on Security and Privacy</p>
+        <p><strong>Link:</strong> <a href="https://ieeexplore.ieee.org/document/8406613" target="_blank">https://ieeexplore.ieee.org/document/8406613</a></p>
+        
+        <p><strong>Title:</strong> SoK: Security and Privacy in Machine Learning</p>
+        <p><strong>Type:</strong> Systematization of Knowledge (SoK)</p>
+        
+        <h3>Why I'm reviewing this</h3>
+        <p>Honestly, ML security is often a scattered field with papers all over the place. This SoK takes a step back and organizes everything clearly. Plus, with all the AI hype, understanding how these systems can be attacked is pretty crucial.</p>
+        
+        <h3>What they actually did</h3>
+        <p>The authors took the classic <strong>CIA framework</strong> (Confidentiality, Integrity, Availability) and said "hey, privacy deserves its own spot" which makes sense. They reviewed 150+ papers and created a clean taxonomy of attacks.</p>
+        
+        <p>Their <strong>quadripartite framework</strong>:</p>
+        <ul>
+          <li><strong>Confidentiality:</strong> Stealing model parameters, architecture, or internal data</li>
+          <li><strong>Integrity:</strong> Messing with model predictions through poisoning or adversarial inputs</li>
+          <li><strong>Availability:</strong> Making the model unusable or unstable</li>
+          <li><strong>Privacy:</strong> Extracting sensitive info about training data</li>
+        </ul>
+        
+        <h3>Attack Types</h3>
+        
+        <h4>Training-Time Attacks</h4>
+        <ul>
+          <li><strong>Data Poisoning:</strong> Inject bad data to bias learning. What's scary is how little poisoned data you need</li>
+          <li><strong>Backdoor Attacks:</strong> Hide triggers in training data that activate later. Pretty clever actually</li>
+        </ul>
+        
+        <h4>Inference-Time Attacks</h4>
+        <ul>
+          <li><strong>Adversarial Examples:</strong> Tiny image changes that fool models. Classic stuff</li>
+          <li><strong>Membership Inference:</strong> Figure out if specific data was used for training</li>
+          <li><strong>Model Inversion:</strong> Reverse-engineer training data from model responses</li>
+          <li><strong>Model Extraction:</strong> Clone models through API calls. This one's particularly nasty for businesses</li>
+        </ul>
+        
+        <h3>What I found interesting</h3>
+        <p>The privacy vs confidentiality distinction is actually smart. I used to think privacy was just a subset of confidentiality, but in ML contexts it's really its own thing. When you can infer that someone's medical data was in a training set, that's different from just stealing the model.</p>
+        
+        <p>Also, their point about trade-offs resonates with my optimization work. Every defense has a cost : computational, accuracy, usability. There's no magic bullet.</p>
+        
+        <h3>My opinion</h3>
+        <p>I'd recommend it to anyone building ML systems who needs to think about security</p>
+
+        <p>Worth reading if you want to understand what can go wrong with ML systems without diving into 150 different papers.</p>
+        
+        <h3>Sources</h3>
+        <p><strong>Authors:</strong> Nicolas Papernot, Patrick McDaniel, Arunesh Sinha, Michael P. Wellman</p>
+        <p><strong>Paper:</strong> <a href="https://ieeexplore.ieee.org/document/8406613" target="_blank">https://ieeexplore.ieee.org/document/8406613</a></p>
+        <p><strong>Published:</strong> 2018 IEEE Symposium on Security and Privacy</p>
+      `,
+      date: "2025-07-29",
+      readTime: "6 min read",
+      tags: ["Security", "Privacy", "Machine Learning", "Systematization", "Literature Review"],
+      type: "literature"
+    },
+    {
       id: 8,
       title: "Running Large Language Models Locally with languagemodels",
       excerpt: "A practical guide to using the languagemodels Python library for local LLM inference with minimal memory requirements...",
@@ -499,78 +562,83 @@ context = lm.get_doc_context("What is a int in Python?")
     },
     {
       id: 5,
-      title: "Attention Is All You Need - Transformer Architecture",
-      excerpt: "Foundational paper introducing the Transformer architecture that revolutionized NLP and became the backbone of modern language models...",
+      title: "Attention Is All You Need",
+      excerpt: "The legendary Google paper that killed RNNs and birthed the Transformer era, from BERT to GPT to everything we use today...",
       content: `
-        <h3>Paper Overview</h3>
-        <p><strong>Authors:</strong> Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and Lukasz Kaiser and Illia Polosukhin (Google Brain/Research)</p>
+        <h3>Paper Info</h3>
+        <p><strong>Authors:</strong> Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin (Google Brain/Research)</p>
         <p><strong>Published:</strong> NIPS 2017</p>
-        <p><strong>arXiv:</strong> <a href="https://arxiv.org/abs/1706.03762" target="_blank">1706.03762</a></p>
+        <p><strong>Link:</strong> <a href="https://arxiv.org/abs/1706.03762" target="_blank">https://arxiv.org/abs/1706.03762</a></p>
         
-        <h3>Key Contributions</h3>
-        <p>This groundbreaking paper introduced the Transformer architecture, which relies entirely on attention mechanisms without recurrence or convolution. The key innovations include:</p>
-        <ul>
-          <li><strong>Self-Attention Mechanism:</strong> Allows the model to weigh the importance of different parts of the input sequence</li>
-          <li><strong>Multi-Head Attention:</strong> Enables the model to attend to different representation subspaces simultaneously</li>
-          <li><strong>Positional Encoding:</strong> Injects sequence order information without recurrence</li>
-          <li><strong>Parallelization:</strong> Significantly faster training compared to RNNs</li>
-        </ul>
+        <h3>Why I'm reviewing this</h3>
+        <p>This is probably the most important ML paper of the last decade. Every modern LLM uses Transformers. If you want to understand how ChatGPT, BERT, or any recent language model works, you have to start here.</p>
         
-        <h3>Personal Notes & Analysis</h3>
-        <p>What struck me most about this paper is how the authors completely departed from the sequential processing paradigm that dominated NLP. The attention mechanism allows for direct connections between any two positions in the sequence, enabling better capture of long-range dependencies.</p>
+        <h3>What they did</h3>
+        <p>The Google team basically said "forget about RNNs and CNNs for sequence tasks" and built everything around attention mechanisms. Revolutionary at the time because everyone thought you needed recurrence to handle sequences.</p>
         
-        <p>The mathematical elegance of the scaled dot-product attention is particularly noteworthy:</p>
+        <p>The key innovation was <strong>self-attention</strong>: instead of processing sequences step by step, the model looks at all positions simultaneously and figures out which parts are relevant to each other.</p>
+        
+        <h3>The Technical Breakthrough</h3>
+        <p>The magic formula that runs the world now:</p>
         <p><code>Attention(Q,K,V) = softmax(QK^T/√d_k)V</code></p>
         
-        <h3>Impact on My Research</h3>
-        <p>This paper fundamentally changed how I think about sequence modeling. The principles of attention have applications far beyond NLP - I've been exploring how similar mechanisms could be applied to my weight analysis work in neural networks.</p>
-        
-        <h3>Key Takeaways</h3>
+        <p>What makes it work:</p>
         <ul>
-          <li>Sometimes the best solution is to completely rethink the problem</li>
-          <li>Parallelization can be more important than model complexity</li>
-          <li>Attention mechanisms are incredibly versatile and transferable</li>
+          <li><strong>Multi-Head Attention:</strong> Run several attention mechanisms in parallel to capture different types of relationships</li>
+          <li><strong>Positional Encoding:</strong> Since there's no recurrence, they inject position info with sine/cosine functions</li>
+          <li><strong>Parallelization:</strong> Unlike RNNs, you can process all positions at once = much faster training</li>
         </ul>
+        
+        <h3>What I found interesting</h3>
+        <p>The attention mechanism is surprisingly simple but incredibly powerful. The fact that you can replace all the complex recurrent machinery with basically "look at everything and decide what's important" is elegant.</p>
+        
+        <p>Also, the parallelization aspect was a game-changer. RNNs were slow to train because of their sequential nature. Transformers solved that completely.</p>
+        
+        <h3>My opinion</h3>
+        <p>Essential reading for anyone in ML. This paper literally created the foundation for the AI boom we're seeing today.</p>
+        
+        <p>The writing is clear, the math is clean, and the results speak for themselves. It's rare to see a paper that so completely changes a field.</p>
+
+        <p> Also I think that It shows that sometimes we need to step back and rethink our assumptions. Try and create new things. Maybe one day the transformer architecture will be replaced by something even more powerful. So we need to keep an open mind and be ready to adapt!</p>
       `,
       date: "2025-04-10",
-      readTime: "8 min read",
+      readTime: "7 min read",
       tags: ["Transformers", "Attention", "NLP", "Deep Learning", "Architecture"],
       type: "literature"
     },
     {
       id: 6,
-      title: "Deep Residual Learning for Image Recognition - ResNet",
-      excerpt: "Revolutionary paper that solved the vanishing gradient problem with residual connections, enabling training of very deep neural networks...",
+      title: "Deep Residual Learning",
+      excerpt: "The Microsoft Research paper that solved the vanishing gradient problem with a brilliant simple trick: just add the input to the output...",
       content: `
-        <h3>Paper Overview</h3>
-        <p><strong>Authors:</strong> Kaiming He et al. (Microsoft Research)</p>
+        <h3>Paper Info</h3>
+        <p><strong>Authors:</strong> Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun (Microsoft Research)</p>
         <p><strong>Published:</strong> CVPR 2016</p>
-        <p><strong>arXiv:</strong> <a href="https://arxiv.org/abs/1512.03385" target="_blank">1512.03385</a></p>
+        <p><strong>Link:</strong> <a href="https://arxiv.org/abs/1512.03385" target="_blank">https://arxiv.org/abs/1512.03385</a></p>
         
-        <h3>The Problem</h3>
-        <p>Before ResNet, training very deep neural networks was problematic due to the vanishing gradient problem. Deeper networks often performed worse than shallower ones, not due to overfitting but due to optimization difficulties.</p>
+        <h3>Why I'm reviewing this</h3>
+        <p>Before ResNet, deeper networks were often worse than shallow ones. This was frustrating because more parameters should mean more capacity, right? These guys figured out the problem and fixed it with an embarrassingly simple solution.</p>
         
-        <h3>The Solution: Residual Learning</h3>
-        <p>The key insight was to reformulate the learning problem. Instead of learning the desired underlying mapping H(x), the authors proposed learning the residual F(x) = H(x) - x, and then computing H(x) = F(x) + x.</p>
+        <h3>The problem they solved</h3>
+        <p>Training really deep networks was a nightmare. You'd stack more layers expecting better performance, but instead you'd get worse results. Not because of overfitting, but because gradients would vanish during backpropagation.</p>
         
-        <p>This simple skip connection allows gradients to flow directly through the identity mapping, solving the vanishing gradient problem.</p>
+        <p>Deep networks struggled to learn even the identity function, if the optimal solution was to just pass the input through unchanged, the network couldn't figure that out.</p>
         
-        <h3>Personal Analysis</h3>
-        <p>What I find most elegant about ResNet is its simplicity. The residual connection is just an addition operation, yet it enables training networks with hundreds of layers. This demonstrates how small architectural changes can have profound impacts.</p>
+        <h3>Their solution: Residual Learning</h3>
+        <p>Instead of trying to learn H(x) directly, learn the residual F(x) = H(x) - x, then compute H(x) = F(x) + x.</p>
         
-        <h3>Applications in My Work</h3>
-        <p>I've been experimenting with residual connections in some of my projects, particularly in the context of my weight analysis tool. The concept of "shortcuts" in information flow is relevant when analyzing how information propagates through different network architectures.</p>
+        <p>The key insight: it's easier to learn to output zero (do nothing) than to learn the identity mapping from scratch.</p>
         
-        <h3>Key Insights</h3>
-        <ul>
-          <li>Sometimes the best solution is the simplest one</li>
-          <li>Skip connections enable identity mappings, making optimization easier</li>
-          <li>Deeper networks can be better if properly designed</li>
-          <li>The residual formulation makes it easier to learn identity functions</li>
-        </ul>
+        <h3>The magic of skip connections</h3>
+        <p>The solution is just addition: take the input, add it to whatever the layers learned. That's it. No fancy math, no complex architectures.</p>
         
-        <h3>Impact</h3>
-        <p>ResNet didn't just win ImageNet 2015 - it fundamentally changed how we think about deep architecture design. Almost every modern architecture incorporates some form of skip connections.</p>
+        <p>This creates a direct path for gradients to flow backward, solving the vanishing gradient problem. Plus, if the optimal solution is to do nothing, the network can just learn F(x) = 0.</p>
+        
+        <h3>What I found interesting</h3>
+        <p>The elegance of the solution. Sometimes the best ideas are the simplest ones. They went from struggling with 20-layer networks to training 152-layer monsters that actually worked better.</p>
+        
+        <p>Also, the fact that this works across so many different architectures. Almost every modern network uses some form of residual connections now.</p>
+        
       `,
       date: "2025-01-22",
       readTime: "6 min read",
@@ -579,44 +647,44 @@ context = lm.get_doc_context("What is a int in Python?")
     },
     {
       id: 7,
-      title: "Generative Adversarial Networks - The Original GAN Paper",
-      excerpt: "Ian Goodfellow's seminal work introducing the GAN framework that sparked a revolution in generative modeling...",
+      title: "Generative Adversarial Networks",
+      excerpt: "Ian Goodfellow's legendary paper that introduced the GAN framework and launched a thousand deepfakes...",
       content: `
-        <h3>Paper Overview</h3>
-        <p><strong>Authors:</strong> Ian Goodfellow et al.</p>
+        <h3>Paper Info</h3>
+        <p><strong>Authors:</strong> Ian Goodfellow, Jean Pouget-Abadie, Mehdi Mirza, Bing Xu, David Warde-Farley, Sherjil Ozair, Aaron Courville, Yoshua Bengio</p>
         <p><strong>Published:</strong> NIPS 2014</p>
-        <p><strong>arXiv:</strong> <a href="https://arxiv.org/abs/1406.2661" target="_blank">1406.2661</a></p>
+        <p><strong>Link:</strong> <a href="https://arxiv.org/abs/1406.2661" target="_blank">https://arxiv.org/abs/1406.2661</a></p>
         
-        <h3>The Revolutionary Idea</h3>
-        <p>GANs introduced a completely new approach to generative modeling through adversarial training. Two neural networks compete against each other:</p>
+        <h3>Why I'm reviewing this</h3>
+        <p>GANs are everywhere now, from image generation to deepfakes to style transfer. This is the paper that started it all. Plus, the core idea is so clever it's almost philosophical: make two networks compete and watch them both get better.</p>
+        
+        <h3>The big idea</h3>
+        <p>Instead of trying to explicitly model data distributions (which is hard), Goodfellow set up a game between two networks:</p>
         <ul>
-          <li><strong>Generator (G):</strong> Learns to create realistic fake data</li>
-          <li><strong>Discriminator (D):</strong> Learns to distinguish real from fake data</li>
+          <li><strong>Generator:</strong> Tries to create fake data that looks real</li>
+          <li><strong>Discriminator:</strong> Tries to spot the fakes</li>
         </ul>
         
-        <h3>The Game Theory Connection</h3>
-        <p>The brilliant insight was framing this as a minimax game. The generator tries to minimize the discriminator's ability to detect fakes, while the discriminator tries to maximize its detection accuracy.</p>
+        <p>They play against each other, and in theory, both get better until the generator creates perfect fakes.</p>
         
-        <p>Mathematically: <code>min_G max_D E[log D(x)] + E[log(1-D(G(z)))]</code></p>
+        <h3>The math behind the magic</h3>
+        <p>It's a minimax game with this objective:</p>
+        <p><code>min_G max_D E[log D(x)] + E[log(1-D(G(z)))]</code></p>
         
-        <h3>Personal Reflections</h3>
-        <p>What fascinates me about GANs is how they leverage competition to drive learning. This adversarial principle has inspired me to think about how competition and collaboration might apply to other ML problems.</p>
+        <p>The discriminator wants to maximize its ability to distinguish real from fake. The generator wants to minimize it. When they reach equilibrium, the generator wins by creating indistinguishable fakes.</p>
         
-        <p>I've implemented several GAN variants in my projects, including SRGAN for super-resolution. Each time, I'm amazed by how this simple competitive framework can generate such realistic results.</p>
+        <h3>What I found interesting</h3>
+        <p>The competitive learning aspect is brilliant. Instead of trying to explicitly teach a network what "real" looks like, you let it figure it out through competition.</p>
         
-        <h3>Challenges & Learnings</h3>
-        <p>Training GANs is notoriously difficult - mode collapse, training instability, and convergence issues are common. This taught me valuable lessons about the importance of:</p>
-        <ul>
-          <li>Careful hyperparameter tuning</li>
-          <li>Monitoring multiple metrics during training</li>
-          <li>Understanding the theoretical foundations behind the algorithms</li>
-        </ul>
+        <p>Also, the theoretical foundation is solid. The paper proves that the optimal discriminator is achieved when P_G = P_data, meaning the generator perfectly matches the real data distribution.</p>
         
-        <h3>Impact on the Field</h3>
-        <p>GANs didn't just introduce a new model - they introduced a new paradigm. The adversarial training concept has been applied far beyond generative modeling, influencing areas like domain adaptation and robustness.</p>
+        <h3>My experience with GANs</h3>
+        <p>I've implemented GANs for my super-resolution project (SRGAN). Training them is absolutely frustrating, mode collapse, training instability, you name it. But when they work, the results are incredible.</p>
+        
+        <p>The adversarial training taught me a lot about the importance of careful hyperparameter tuning and monitoring multiple metrics during training.</p>
       `,
       date: "2024-12-15",
-      readTime: "7 min read",
+      readTime: "6 min read",
       tags: ["GANs", "Generative Models", "Adversarial Training", "Deep Learning"],
       type: "literature"
     },
@@ -634,7 +702,7 @@ context = lm.get_doc_context("What is a int in Python?")
     {
       id: 2,
       title: "Counterfactual Transferability in Adversarial Attacks",
-      description: "I want to dive deeper into adversarial examples and specifically explore how counterfactuals can transfer between different models. The goal is to highlight just how dangerous these attacks can be - if we can create adversarial examples that fool multiple models at once, that's a serious security concern that needs more attention.",
+      description: "I want to dive deeper into adversarial examples and specifically explore how counterfactuals can transfer between different models. The goal is to highlight just how dangerous these attacks can be, if we can create adversarial examples that fool multiple models at once, that's a serious security concern that needs more attention.",
       category: "Adversarial ML",
       status: "Research Idea",
       estimatedDuration: "4-6 months"
@@ -642,7 +710,7 @@ context = lm.get_doc_context("What is a int in Python?")
     {
       id: 3,
       title: "Experimenting with Different RL Algorithms",
-      description: "My space navigation project got me hooked on reinforcement learning, but I only tried Deep Q-Learning. I want to experiment with other approaches - PPO, A3C, maybe some more recent algorithms. See which ones work better for different types of problems.",
+      description: "My space navigation project got me hooked on reinforcement learning, but I only tried Deep Q-Learning. I want to experiment with other approaches, PPO, A3C, maybe some more recent algorithms. See which ones work better for different types of problems.",
       category: "Reinforcement Learning",
       status: "Next Project",
       estimatedDuration: "3-4 months"
