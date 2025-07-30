@@ -247,6 +247,72 @@ const portfolioData = {
 
   blogPosts: [
     {
+      id: 10,
+      title: "Transferable Adversarial Evasion of NIDS via Counterfactuals (Towards No‑Box)",
+      excerpt: "Using counterfactual explanations to craft transferable adversarial traffic against ML-based intrusion detection systems — progressively reducing attacker knowledge from white/gray-box to near no-box.",
+      content: `
+        <p>Project presentation: Transferable Adversarial Evasion of NIDS via Counterfactuals (Towards No‑Box)</p>
+
+        <p>Goal: show that attacking ML-driven network intrusion detection systems (NIDS) can be <b>easy and dangerous</b>, even when the attacker knows very little about the target. We leverage <b>counterfactuals</b> to improve transferability and approach a <b>no-box</b> setting.</p>
+
+        <h3>Context & Setup</h3>
+        <ul>
+          <li>Dataset scaled to [0,1]; experiments over 5 seeds; focus on neural networks (also tested DT, RF, AdaBoost, XGBoost separately). Classes: Bot, BruteForce, DDoS, PortScan, Web attack. Attacker and target models are trained on <b>different data</b>. Metrics: evasion rate (primary) and confusion rate. </li>
+          <li>Baseline gradient attack: C‑MIFGSM with ε = 0.4. </li>
+        </ul>
+        <p>These constraints reflect realistic deployment and transfer settings for NIDS.</p>
+
+        <h3>Methods</h3>
+        <p> What is an adversarial attack? It is a perturbation of an input that causes a model to misclassify it. In our case, we want to craft network traffic that is misclassified as benign by the NIDS.</p>
+
+        <p><b>1) C‑MIFGSM (baseline)</b> — Attacker has a dataset, feature knowledge, and an API to query the target NIDS. Result: ~46.3% (±6.8) evasion; ~76.2% (±5.2) confusion.</p>
+
+        <p><b>2) Counterfactuals with DiCE — with data knowledge</b> — Train an attacker model, generate one counterfactual (CF) per instance, test on target. Result: ~51.3% (±2.8) evasion; ~73.2% (±2.2) confusion. CFs already outperform the gradient baseline on evasion.</p>
+
+        <p><b>3) Counterfactuals with DiCE — without data knowledge</b> — Keep only feature knowledge + target API; <i>no access to the training data</i>. Result: ~55.3% (±2.7) evasion; ~79.1% (±1.8) confusion. Transferability improves further despite less information.</p>
+
+        <p><b>4) More CFs per instance</b> — Generate multiple CFs and keep the one that passes the NIDS; this further increases the practical evasion success.</p>
+
+        <h3>Why Counterfactuals?</h3>
+        <p>CFs directly search for <i>minimal, semantically plausible</i> feature changes that flip a decision. That makes them naturally <b>transferable</b> across models trained on different data, a property we exploit to reduce attacker knowledge while keeping high evasion.</p>
+
+        <h3>Reducing Attacker Knowledge → Towards No‑Box</h3>
+        <p><b>Surrogate with random-uniform "noise" data</b> — When we remove the attacker's training data entirely, we synthesize a random dataset that respects the known feature ranges. We then use the target API to label this data and fit a surrogate, from which we generate CFs that still evade the target at meaningful rates.</p>
+
+        <p><b>Why feature access remains realistic</b> — In practice, traffic-generation tools expose rich feature sets; it is reasonable to assume the IDS feature space is a subset of the tool's features (IDS_features ⊂ tool_features). An attacker can therefore craft traffic to meet the CF prescriptions without needing the IDS internals. After creating this attack (with a tool), the IDS will gather all the features it need from the attacker traffic.</p>
+
+        <p><b>No‑Box step</b> — Remove the target API. We infer "labels" from the <i>network response</i> itself: blocked traffic ⇒ malicious; allowed ⇒ benign. This supervision is enough to train a surrogate and continue producing CFs that transfer back to the closed system, edging towards a true no‑box attack pipeline.</p>
+
+        <h3>Key Results</h3>
+        <ul>
+          <li>DiCE w/ data knowledge: ~85.3% (±2.8) evasion with 4 cf;</li>
+          <li>DiCE w/o data knowledge and with a surrogate model: ~64.3% (±2.7) evasion with 4 cf;</li>
+          <li>On an other dataset : w/ data knowledge: ~79.1% (±2.5) evasion with 4 cf;</li>
+          <li>On an other dataset : w/o data knowledge and with a surrogate model: ~35.2% (±3.1) evasion with 4 cf;</li>
+        </ul>
+
+        <h3>Implications</h3>
+        <ul>
+          <li><b>Counterfactuals are potent transfer attacks</b> for NIDS, often exceeding gradient baselines under constrained knowledge.</li>
+          <li>Even without training data, and eventually without a target API, attackers can bootstrap surrogates and <b>systematically find evasive flows</b>.</li>
+          <li>Security takeaway: ML‑based NIDS need <b>robust defenses</b> against CF‑style transfer (e.g., adversarial training with CFs, input consistency checks, post‑hoc CF detection, and feature‑robust architectures).</li>
+        </ul>
+
+        <h3>Limitations & Next Steps</h3>
+        <ul>
+          <li>We focused on tabular NIDS features; extending to richer flow/sequence models is next.</li>
+          <li>We'll quantify the trade‑offs between #CFs per instance and detection latency, and broaden tests across non‑NN classifiers (DT/RF/AdaBoost/XGBoost) and datasets already piloted.</li>
+        </ul>
+
+        <p>If you're building or evaluating NIDS, consider CF‑based red‑teaming in your pipeline, the barrier to effective evasion is lower than many expect.</p>
+      `,
+      image: "assets/images/cf-nids.jpg",
+      date: "2025-07-30",
+      readTime: "5 min read",
+      tags: ["Adversarial ML", "NIDS", "Counterfactuals", "Transferability", "Black-box", "No-box", "Security"],
+      type: "research"
+    },
+    {
       id: 9,
       title: "SoK: Security and Privacy in Machine Learning",
       excerpt: "A systematic review of security threats in ML systems, introducing a quadripartite framework that extends the classic CIA model to explicitly include privacy...",
