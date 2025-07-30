@@ -306,7 +306,7 @@ const portfolioData = {
 
         <p>If you're building or evaluating NIDS, consider CF‑based red‑teaming in your pipeline, the barrier to effective evasion is lower than many expect.</p>
       `,
-      image: "assets/images/cf-nids.jpg",
+      image: "assets/images/sec.jpg",
       date: "2025-07-30",
       readTime: "5 min read",
       tags: ["Adversarial ML", "NIDS", "Counterfactuals", "Transferability", "Black-box", "No-box", "Security"],
