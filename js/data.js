@@ -7,7 +7,7 @@ const portfolioData = {
       description: "ML toolkit for analyzing the effective use of weights in neural networks. It provides quantitative metrics (entropy, coverage, FLOPs) and visualizations to identify redundant parameters and guide model simplification, compatible with both PyTorch and TensorFlow.",
       image: "assets/images/weightanalyser.jpg",
       technologies: ["Python", "PyTorch", "TensorFlow", "Machine Learning", "Neural Networks", "Model Optimization"],
-      github: "https://github.com/AngelLagr/WeightUsageAnalyzer",
+      github: "https://github.com/AngelLagr/weight-usage-analyzer",
       demo: "",
       featured: true,
       details: {
